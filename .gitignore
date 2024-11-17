@@ -1,0 +1,20 @@
+# macOS files
+.DS_Store
+*.app
+*.dSYM/
+*.plist
+
+# JUCE build directories
+Build/
+cmake-build-debug/
+cmake-build-release/
+
+# Generated project files 
+Makefile
+CMakeLists.txt.user
+*.xcodeproj
+*.xcworkspace
+
+# log files
+*.log
+
