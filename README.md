@@ -20,3 +20,4 @@ A digital synthesizer built in C++ using the JUICE framework for learning audio 
 
 ## Learning Resources
 - The Audio Programming Book
+- The Audio Programmer - Let's Build a Synth with Juce - Tutorial
