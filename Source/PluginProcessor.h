@@ -56,6 +56,10 @@ public:
 private:
     juce::dsp::Oscillator<float> osc {[](float x) { return std::sin (x); }};
     juce::dsp::Gain<float> gain;
+    
+    // return std::sin (x); //Sine Wave
+    // return x / juce::MathConstants<float>::pi; //Saw Wave
+    // return x < 0.0f ? -1.0f : 1.0f; // Square Wave
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Simple_OscillatorAudioProcessor)
 };
