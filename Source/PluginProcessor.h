@@ -56,6 +56,9 @@ public:
     void setFrequency(float freq){
         osc.setFrequency(freq);
     }
+    void setGain(float newgain){
+        gain.setGainLinear(newgain);
+    }
     
 
 private:

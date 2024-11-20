@@ -30,6 +30,8 @@ private:
     Simple_OscillatorAudioProcessor& audioProcessor;
     juce::Slider frequencySlider;
     juce::Label frequencyLabel;
+    juce::Slider gainSlider;
+    juce::Label gainLabel;
     
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Simple_OscillatorAudioProcessorEditor)

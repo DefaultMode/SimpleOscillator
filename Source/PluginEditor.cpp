@@ -16,24 +16,40 @@ Simple_OscillatorAudioProcessorEditor::Simple_OscillatorAudioProcessorEditor (Si
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
     setSize (400, 300);
-    //Configuring Slider
+    //Configuring Frequency Slider
     addAndMakeVisible(frequencySlider);
     frequencySlider.setSliderStyle(juce::Slider::LinearHorizontal);
     frequencySlider.setRange(20.0f, 500.0f,1.0f);
     frequencySlider.setValue(440.0f);
     frequencySlider.setTextValueSuffix(" Hz");
-    //Adding Label
+    //Adding Frequency Slider Label
     addAndMakeVisible(frequencyLabel);
     frequencyLabel.setText("Frequency", juce::dontSendNotification);
     frequencyLabel.attachToComponent(&frequencySlider, true);
     
-    //Add Slider Listener
+    //Add Frequency Slider Listener
     frequencySlider.onValueChange = [this](){
         auto freq = frequencySlider.getValue();
         audioProcessor.setFrequency(freq);
     };
+    
+    //Configure Gain Slider
+    addAndMakeVisible(gainSlider);
+    gainSlider.setSliderStyle(juce::Slider::LinearHorizontal);
+    gainSlider.setRange(0.0f,1.0f,0.01f);
+    gainSlider.setValue(0.01f);
+    gainSlider.setTextValueSuffix(" db");
+    //Adding Gain Slider Label
+    addAndMakeVisible(gainLabel);
+    gainLabel.setText("Decibels",  juce::dontSendNotification);
+    gainLabel.attachToComponent(&gainSlider, true);
+    //Add Gain Slider Listener
+    gainSlider.onValueChange = [this](){
+        auto newgain = gainSlider.getValue();
+        audioProcessor.setGain(newgain);
+    };
 }
-
+    
 Simple_OscillatorAudioProcessorEditor::~Simple_OscillatorAudioProcessorEditor()
 {
 }
@@ -53,4 +69,5 @@ void Simple_OscillatorAudioProcessorEditor::resized()
 {
     auto area = getLocalBounds();
         frequencySlider.setBounds(100, 50, getWidth() - 120, 20);
+    gainSlider.setBounds(100,100,getWidth() - 120, 20);
 }
