@@ -52,6 +52,11 @@ public:
     //==============================================================================
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
+    //==============================================================================
+    void setFrequency(float freq){
+        osc.setFrequency(freq);
+    }
+    
 
 private:
     juce::dsp::Oscillator<float> osc {[](float x) { return std::sin (x); }};
