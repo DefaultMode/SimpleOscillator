@@ -32,6 +32,8 @@ private:
     juce::Label frequencyLabel;
     juce::Slider gainSlider;
     juce::Label gainLabel;
+    juce::TextButton(Saw);
+    
     
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Simple_OscillatorAudioProcessorEditor)

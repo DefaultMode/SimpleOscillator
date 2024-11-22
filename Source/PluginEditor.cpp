@@ -47,6 +47,13 @@ Simple_OscillatorAudioProcessorEditor::Simple_OscillatorAudioProcessorEditor (Si
     gainSlider.onValueChange = [this](){
         auto newgain = gainSlider.getValue();
         audioProcessor.setGain(newgain);
+    
+    //Configure Button
+        addAndMakeVisible(Saw);
+        Saw.setButtonText("Saw");
+        Saw.onClick = [this](){
+            
+        };
     };
 }
     
@@ -68,6 +75,7 @@ void Simple_OscillatorAudioProcessorEditor::paint (juce::Graphics& g)
 void Simple_OscillatorAudioProcessorEditor::resized()
 {
     auto area = getLocalBounds();
-        frequencySlider.setBounds(100, 50, getWidth() - 120, 20);
+    frequencySlider.setBounds(100, 50, getWidth() - 120, 20);
     gainSlider.setBounds(100,100,getWidth() - 120, 20);
+    Saw.setBounds(50, 200, 50, 20);
 }

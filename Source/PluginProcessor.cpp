@@ -103,6 +103,9 @@ void Simple_OscillatorAudioProcessor::prepareToPlay (double sampleRate, int samp
     
     osc.setFrequency (220.0f);
     gain.setGainLinear (0.01f);
+    
+    
+    
 }
 
 void Simple_OscillatorAudioProcessor::releaseResources()
