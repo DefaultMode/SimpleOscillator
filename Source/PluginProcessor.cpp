@@ -20,6 +20,8 @@ Simple_OscillatorAudioProcessor::Simple_OscillatorAudioProcessor()
                        .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
                      #endif
                        )
+
+
 #endif
 {
 }
@@ -105,7 +107,6 @@ void Simple_OscillatorAudioProcessor::prepareToPlay (double sampleRate, int samp
     gain.setGainLinear (0.01f);
     
     
-    
 }
 
 void Simple_OscillatorAudioProcessor::releaseResources()
@@ -142,6 +143,7 @@ bool Simple_OscillatorAudioProcessor::isBusesLayoutSupported (const BusesLayout&
 
 void Simple_OscillatorAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
+    
     juce::ScopedNoDenormals noDenormals;
     auto totalNumInputChannels  = getTotalNumInputChannels();
     auto totalNumOutputChannels = getTotalNumOutputChannels();
@@ -149,7 +151,9 @@ void Simple_OscillatorAudioProcessor::processBlock (juce::AudioBuffer<float>& bu
     
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
-
+    
+    
+    
     juce::dsp::AudioBlock<float> audioBlock { buffer };
     osc.process (juce::dsp::ProcessContextReplacing<float>(audioBlock));
     gain.process (juce::dsp::ProcessContextReplacing<float>(audioBlock));

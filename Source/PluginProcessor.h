@@ -9,17 +9,19 @@
 #pragma once
 
 #include <JuceHeader.h>
+#define WAVE_ID "waveid"
+#define WAVE_NAME "Wave"
 
 //==============================================================================
 /**
 */
+
 class Simple_OscillatorAudioProcessor  : public juce::AudioProcessor
 {
 public:
     //==============================================================================
     Simple_OscillatorAudioProcessor();
     ~Simple_OscillatorAudioProcessor() override;
-
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
     void releaseResources() override;
@@ -60,7 +62,7 @@ public:
         gain.setGainLinear(newgain);
     }
     
-
+    
 private:
     juce::dsp::Oscillator<float> osc {[](float x) { return std::sin (x); }};
     juce::dsp::Gain<float> gain;
@@ -70,4 +72,5 @@ private:
     // return x < 0.0f ? -1.0f : 1.0f; // Square Wave
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Simple_OscillatorAudioProcessor)
+    
 };
